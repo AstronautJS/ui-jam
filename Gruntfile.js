@@ -3,6 +3,7 @@ module.exports = function(grunt) {
   // Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		
 		sass: { 
 			dist: {
 				files: [{
@@ -13,8 +14,21 @@ module.exports = function(grunt) {
 					ext: '.css'
 			  	}]
 			}
+		},
+
+		concat: {
+			js: {
+				files: {
+					'./dist/_js/concated.js': ['./sources/_js/*.js', '!./sources/_js/context.js'],
+					'./dist/_js/context.js': ['./dist/_js/concated.js', './sources/_js/context.js']
+				}
+			}	
+		},
+
+		jshint: {
+			all: ['./sources/**/*.js']
 		}
-		//taksName: {}
+		
 	});
 
 	
@@ -27,5 +41,5 @@ module.exports = function(grunt) {
 
 
   	// Default task(s).
- 	grunt.registerTask('default', ['uglify']);
+ 	grunt.registerTask('default', ['sass']);
 };

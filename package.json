@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
     "load-grunt-tasks": "^3.5.2"
   }
 }

@@ -3,7 +3,17 @@ module.exports = function(grunt) {
   // Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		
+		sass: { 
+			dist: {
+				files: [{
+					expand: true,
+					cwd: 'sources/_scss',
+					src: ['context.scss'],
+					dest: './dist/_css/',
+					ext: '.css'
+			  	}]
+			}
+		}
 		//taksName: {}
 	});
 

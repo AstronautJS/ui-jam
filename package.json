@@ -1,0 +1,36 @@
+{
+  "name": "ui-jam",
+  "version": "0.0.1",
+  "description": "UI Jam Collaboration in SenacRS",
+  "main": "echo \"Error: no main specified\" && exit 1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AstronautJS/ui-jam.git"
+  },
+  "keywords": [
+    "CollaborationJAM",
+    "SenacRS",
+    "AtronautJS"
+  ],
+  "author": "AstronautJSTeam",
+  "license": "OSD",
+  "bugs": {
+    "url": "https://github.com/AstronautJS/ui-jam/issues"
+  },
+  "homepage": "https://github.com/AstronautJS/ui-jam#readme",
+  "node_version": ">= 6.0.0",
+  "engine": "node >= 6.0.0",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "nunjucks": "^3.0.0",
+    "node-sass": "^4.5.2",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^1.1.0",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}

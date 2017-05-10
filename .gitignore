@@ -1,0 +1,24 @@
+# development variable directories
+node_modules/
+dist/
+.Trash-1000
+
+
+# IDEs metadata
+.project
+nbproject
+sftp-config.json
+
+
+# sass
+.sass-cache
+npm-debug.log
+
+
+#MAC
+.DS_Store
+
+
+#VIM
+.swp
+.swo

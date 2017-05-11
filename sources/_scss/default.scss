@@ -40,6 +40,7 @@ body[data-page="listCategory"] {
     height: 100%;
     padding: 88px 20px;
     z-index: 99;
+    overflow-y: auto;
 }
 
 .collection {

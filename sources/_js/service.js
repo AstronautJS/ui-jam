@@ -37,6 +37,7 @@ http.post = function(url, data, callback){
 /*
  * Method PUT
  * http.put('Routes', {name: 'yourName'}, callback);
+ * http.put('visitedPlaces', {id: idAccount, place: idPlace}, callback);
  */
 http.put = function(url, data, callback){
   $.ajax({

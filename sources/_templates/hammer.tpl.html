@@ -1,17 +1,19 @@
 <div id="hammer" class="els-hammer" data-category="food">
 	
-	<div class="row">
+    {% for item in data %}
+	<div class="row" data-category="{{ item.name }}" data-id="{{item._id}}" data-index="{{loop.index}}">
 		<div class="col s12 m6">
 			<div class="card">
 				<div class="card-image">
-					<img src="http://materializecss.com/images/sample-1.jpg">
+					<img src="https://astronautjs.alexslx.xyz/images/picture/{{item.picture}}">
 				</div>
 				
 				<div class="card-content">
-				 	<span class="card-title">Card Title</span>
+				    <span class="card-title">{{ item.name }}</span>
 				</div>
 			</div>
 		</div>
 	</div>
+    {% endfor %}
 
 </div>

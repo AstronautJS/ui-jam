@@ -1,0 +1,45 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: -78px;
+    width: 100%;
+    height: 78px;
+	padding: 10px 0;
+    box-shadow: 0 0 2px rgba(0,0,0, 0.35);
+    overflow-x: auto;
+    z-index: 100;
+    background-color: $grayLight;
+    white-space: nowrap;
+    transition: all 300ms linear;
+}
+
+.scroll-bar {
+    height: 58px;
+    display: block;
+    margin: 0;
+}
+
+.item-bar-category {
+    display: inline;
+   
+
+    .item {
+        display: inline-block;
+        width: 58px;
+        height: 58px;
+        background: $primary;
+        border-radius: 100%;
+        margin: 0 5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+        .avatar {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+}

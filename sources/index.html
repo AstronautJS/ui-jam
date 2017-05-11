@@ -3,44 +3,50 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        
-        <title></title>
-        
+
+        <title>ConheCENTRO</title>
+
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
+
         <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css"/>
         <link type="text/css" rel="stylesheet" href="/dist/_css/context.css"/>
     </head>
-    <body>
+    <body id="body">
+		<section id="loginScreen" class="login-screen">
+			<article>
+				<p>
+					Bem vindo ao <strong><i>ConheCENTRO</i></strong>
+					<br>
+					<br>
+					<small>Fique por dentro do que está acontecendo ao seu redor!!</small>
+				</p>
 
-        <a class="waves-effect waves-light btn">button</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
-        <a class="waves-effect waves-light btn"><i class="material-icons right">cloud</i>button</a>
+				<a id="btnEnter" class="pulse waves-effect waves-light btn-large  red lighten-3"> <strong>entrar</strong> </a>
+			</article>
+		</section>
 
+		<header id="header" class="header">
+            <ul id="scrollBar" class="scroll-bar"></ul>
+        </header>
 
-        <div class="row">
-            <div class="col s12 m7">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Astronaut-EVA.jpg">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section id="mainContainer" class="main-container"></section>
+		
+		<section id="secondaryContainer" class="display-none secondary-container">
+			<ul id="listCollection" class="collection"></ul>
+		</section>
 
+        <footer id="footer" class="footer">
+          	<nav id="barAction" class="bar-action">
+				<a id="btnReject" class="btn-floating btn-large waves-effect waves-light red lighten-1"><i class="material-icons">thumb_down</i></a>
+				<a id="btnCancel" class="btn-floating btn-large waves-effect waves-light red lighten-1"><i class="material-icons">cancel</i></a>
+				<a id="btnAccept" class="btn-floating btn-large waves-effect waves-light green lighten-1"><i class="material-icons">thumb_up</i></a>
+			</nav>
+        </footer>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/dist/_js/lib/nunjucks.js"></script>
+        <script type="text/javascript" src="/dist/_js/lib/hammer.js"></script>
         <script type="text/javascript" src="/dist/_js/context.js"></script>
     </body>
-</html>
+</html>	

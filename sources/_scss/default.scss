@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $defaultLight;
+}
+
+body[data-page="home"] {
+    #btnCancel {
+        display: none;    
+    }
+    
+    #btnAccept,
+    #btnReject {
+        display: inline-block;    
+    }
+}
+
+body[data-page="listCategory"] {
+    #btnCancel {
+        display: inline-block;    
+    }
+    
+    #btnAccept,
+    #btnReject {
+        display: none;    
+    }
+}
+
+.display-none {
+    display: none;    
+}
+
+.main-container,
+.secondary-container {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding: 88px 20px;
+    z-index: 99;
+}
+
+.collection {
+    border-radius: 4px;
+
+    .collection-item {
+        padding: 20px;    
+    }
+}
+
+.square-list-category {
+    .item-category {
+        display: block;
+        float: left;
+        width: 114px;
+        height: 114px;
+        background-color: #ccc;
+        margin: 5px;
+        border-radius: 4px;
+    }
+
+    .category {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        width: 114px;
+        height: 114px;
+        display: block;
+    }
+
+    .category-icon {
+        display: block;
+        width: 66px;
+        height: 66px;
+        margin: 0 auto;
+        background: #eee;
+    }
+}
+
+.carousel {
+    height: 78px;
+
+    .carousel-item {
+        border-radius: 100%;
+        width: 58px;
+        height: 58px;
+    }    
+}
+
+.card .card-content {
+    text-align: center;    
+}
+
+.login-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: $primary;
+    padding: 0 20px;
+    text-align: center;
+    color: #fff;
+    line-height: 28px;
+    font-size: 26px;
+    
+    article {
+        margin-top: 230px;    
+    }
+}
+
+
+
+
+
+

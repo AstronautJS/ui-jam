@@ -3,7 +3,7 @@
 
     var DOM = {
         footer: document.getElementById('footer'),
-        navbar: document.getElementById('navbar')
+        header: document.getElementById('header')
     };
     var RENDERED = {};
 
@@ -12,5 +12,5 @@
     RENDERED.navAction = nunjucks.render('_templates/navbar.tpl.html', {});
 
     DOM.footer.innerHTML = RENDERED.barAction;
-    DOM.navbar.innerHTML = RENDERED.navAction;
+    DOM.header.innerHTML = RENDERED.navAction;
 })();

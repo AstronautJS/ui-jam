@@ -63,8 +63,20 @@ module.exports = function(grunt) {
 						dest: './dist/_templates/'
 					}
 				],
+		  	},
+            image: {
+				files: [
+					{
+						filter: 'isFile',
+						flatten: true,
+						expand: true,
+						src: [
+							'./sources/_img/**',
+						],
+						dest: './dist/_img/'
+					}
+				],
 		  	}
-
 		}
 	});
 
@@ -74,5 +86,12 @@ module.exports = function(grunt) {
 
 
   	// Default task(s).
- 	grunt.registerTask('default', ['copy:html', 'copy:template', 'sass', 'jshint', 'concat:js']);
+ 	grunt.registerTask('default', [
+        'copy:html',
+        'copy:template',
+        'copy:image',
+        'sass',
+        'jshint',
+        'concat:js'
+    ]);
 };

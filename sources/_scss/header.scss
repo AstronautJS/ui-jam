@@ -1,0 +1,28 @@
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 78px;
+	padding: 10px 0;
+    box-shadow: 0 0 2px rgba(0,0,0, 0.35);
+}
+
+.header,
+.bar-action {
+    background-color: $grayLight;
+}
+
+.bar-action {
+	text-align: center;
+	height: auto;
+	box-shadow: none;
+	background: none;
+
+	.btn-floating {
+		box-shadow: none;
+		margin: 0 5px;
+	}
+}
+
+

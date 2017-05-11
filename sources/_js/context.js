@@ -11,7 +11,10 @@
         secondaryContainer: document.getElementById('secondaryContainer'),
         btnCancel: document.getElementById('btnCancel'),
         btnReject: document.getElementById('btnReject'),
-        btnAccept: document.getElementById('btnAccept')
+        btnAccept: document.getElementById('btnAccept'),
+
+        loginContent: document.getElementById('loginScreen'),
+        btnEnter: document.getElementById('btnEnter'), 
     };
     var PAGESTATUS = {
         home: 'home',
@@ -50,6 +53,7 @@
 
     //////////////////////////////////////////////////
 
+
     FUNCTION.setStatusPage(PAGESTATUS.home);
     
     RENDERED.hammer = nunjucks.render('_templates/hammer.tpl.html', {});
@@ -70,6 +74,15 @@
 
     /////////////////////////////////////////////////
     
+    
+    btnEnter.addEventListener('click', function() {
+        $(DOM.loginContent).fadeOut();
+        setTimeout(function(){
+            DOM.loginContent.remove();
+        }, 300);
+    });
+
+
     DOM.btnCancel.addEventListener('click', function() {
         FUNCTION.setStatusPage(PAGESTATUS.home);
 

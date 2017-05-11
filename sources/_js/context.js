@@ -2,6 +2,7 @@
     'use strict';
 
     var DOM = {
+        header: document.getElementById('header'),
         footer: document.getElementById('footer')    
     };
     var RENDERED = {};

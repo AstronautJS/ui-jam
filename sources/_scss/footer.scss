@@ -1,0 +1,27 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 78px;
+	padding: 10px 0;
+}
+
+.footer,
+.bar-action {
+    background-color: $grayLight;
+}
+
+.bar-action {
+	text-align: center;
+	height: auto;
+	box-shadow: none;
+	background: none;
+
+	.btn-floating {
+		box-shadow: none;
+		margin: 0 5px;
+	}
+}
+
+

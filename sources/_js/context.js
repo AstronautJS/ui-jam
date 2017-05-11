@@ -22,6 +22,8 @@
         listCategory: 'listCategory'
     };
     var currentPage = 'home';
+    var currentIndex = 1;
+    var categoryResponse;
 
 
     //////////////////////////////////////////////////
@@ -39,14 +41,12 @@
         var hammerElement = document.getElementById('hammer');
         var hammerCategory = hammerElement.getAttribute('data-category');
 
-		FUNCTION.renderCategoryBar(hammerCategory);
+		FUNCTION.renderCategoryBar();
     };
     
-    FUNCTION.renderCategoryBar = function(category) {
-        console.log('#category', category);
-        
+    FUNCTION.renderCategoryBar = function() {
         var scrollBar = document.getElementById('scrollBar');
-        var categoryBarItem = nunjucks.render('_templates/place-bar-category.tpl.html', {});
+        var categoryBarItem = nunjucks.render('_templates/place-bar-category.tpl.html', categoryResponse[currentIndex - 1]);
 
         scrollBar.innerHTML += categoryBarItem;
     };
@@ -56,22 +56,54 @@
 
 
     FUNCTION.setStatusPage(PAGESTATUS.home);
-    
-    RENDERED.hammer = nunjucks.render('_templates/hammer.tpl.html', {});
-    DOM.mainContainer.innerHTML = RENDERED.hammer;
 
     var hammer = new Hammer(DOM.mainContainer);
-	hammer.on('swipeleft swiperight', function (ev) {
+    hammer.on('swipeleft swiperight', function (ev) {
 		switch(ev.type) {
 			case 'swipeleft':
-			    console.log('esquerda');
+                if(currentIndex > 10) {
+                    return;
+                }
+
+                DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').remove();
+
+                currentIndex++;
+                
+                if(DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]')){
+                    DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').style.display = 'block';
+                }
+
 			break;
 			case 'swiperight':
+                if(currentIndex > 10) {
+                    return;
+                }
+                
                 FUNCTION.addCategoryInBar();
                 DOM.header.style.top = 0;
-			break;
+                
+                DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').remove();
+
+                currentIndex++;
+                
+                if(DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]')){
+                    DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').style.display = 'block';
+                }
+            break;
 		}
 	});
+
+    http.get('category', function(response) {
+        if(response.status === 'success') {
+            categoryResponse = response.data;
+
+            RENDERED.hammer = nunjucks.render('_templates/hammer.tpl.html', response);
+            DOM.mainContainer.innerHTML = RENDERED.hammer;
+            
+            DOM.hammer = document.getElementById('hammer');
+            DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').style.display = 'block';
+        }
+    });
 
 
     /////////////////////////////////////////////////
@@ -96,29 +128,61 @@
     });
 
     DOM.btnReject.addEventListener('click', function() {
-        console.log('reject');
+        if(currentIndex > 10) {
+            return;
+        }
+
+        DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').remove();
+
+        currentIndex++;
+        
+        if(DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]')){
+            DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').style.display = 'block';
+        }
+
     });
     
     DOM.btnAccept.addEventListener('click', function() {
+        if(currentIndex > 10) {
+            return;
+        }
+
         FUNCTION.addCategoryInBar();
+        DOM.header.style.top = 0;
+        
+        DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').remove();
+
+        currentIndex++;
+        
+        if(DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]')){
+            DOM.hammer.querySelector('.row[data-index="'+ currentIndex +'"]').style.display = 'block';
+        }
     });
 
             
     DOM.header.addEventListener('click', function(e) {
         var element = e.target;
         var parentParent = element.parentNode.parentNode;
-        var listRendered = nunjucks.render('_templates/place-list.tpl.html', {});
+        var listRendered;
+        var id;
 
         if(parentParent.className !== 'item-bar-category') {
             return;
         }
 
-        FUNCTION.setStatusPage(PAGESTATUS.listCategory);
+        id = parentParent.id;
 
-        DOM.mainContainer.classList.add('display-none');
-        DOM.secondaryContainer.classList.remove('display-none');
+        http.get('place/' + id, function(response) {
+            if(response.status === 'success') {
+                listRendered = nunjucks.render('_templates/place-list.tpl.html', response);
 
-        DOM.listCollection.innerHTML = listRendered;
+                FUNCTION.setStatusPage(PAGESTATUS.listCategory);
+
+                DOM.mainContainer.classList.add('display-none');
+                DOM.secondaryContainer.classList.remove('display-none');
+
+                DOM.listCollection.innerHTML = listRendered;
+            }
+        });
     });
-
 })();

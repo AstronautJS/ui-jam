@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: $defaultLight;
+    background-color: #ffebee;
 }
 
 body[data-page="home"] {
@@ -112,8 +112,14 @@ body[data-page="listCategory"] {
     }
 }
 
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
 
-
-
-
-
+.els-hammer {
+    .row {
+        display: none;    
+    }    
+}

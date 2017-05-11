@@ -6,6 +6,7 @@
     var DOM = {
         body: document.getElementById('body'),
         header: document.getElementById('header'),
+        footer: document.getElementById('footer'),
         listCollection: document.getElementById('listCollection'),
         mainContainer: document.getElementById('mainContainer'),
         secondaryContainer: document.getElementById('secondaryContainer'),
@@ -46,7 +47,7 @@
         
         var scrollBar = document.getElementById('scrollBar');
         var categoryBarItem = nunjucks.render('_templates/place-bar-category.tpl.html', {});
-        
+
         scrollBar.innerHTML += categoryBarItem;
     };
     
@@ -67,6 +68,7 @@
 			break;
 			case 'swiperight':
                 FUNCTION.addCategoryInBar();
+                DOM.header.style.top = 0;
 			break;
 		}
 	});
@@ -77,9 +79,12 @@
     
     btnEnter.addEventListener('click', function() {
         $(DOM.loginContent).fadeOut();
+        
         setTimeout(function(){
             DOM.loginContent.remove();
         }, 300);
+        
+        DOM.footer.style.bottom = 0;
     });
 
 

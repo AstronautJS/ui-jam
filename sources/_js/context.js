@@ -3,9 +3,5 @@
 
     console.log('# JAM JavaScript context success loaded');
     
-    var test = document.getElementById('test');
-
-    
-
-    
+    // var rendered = nunjucks.render('_templates/test.tpl.html', { foo: 'bar' });
 })();

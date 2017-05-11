@@ -1,6 +1,4 @@
 module.exports = function(grunt) {
-
-  // Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		
@@ -27,19 +25,24 @@ module.exports = function(grunt) {
 
 		jshint: {
 			all: ['./sources/**/*.js']
+		},
+
+     	watch: {
+		 	scripts: {
+				files: ['./sources/**/*.js', './sources/**/*.scss'],
+				tasks: ['default'],
+				options: {
+			  		spawn: false,
+				},
+		  	},
 		}
-		
 	});
 
-	
-	// OLDDEST
-  	//grunt.loadNpmTasks('grunt-contrib-uglify');
-	
 	
 	// NEWEST and dinamic modules load
 	require('load-grunt-tasks')(grunt);
 
 
   	// Default task(s).
- 	grunt.registerTask('default', ['sass']);
+ 	grunt.registerTask('default', ['sass', 'jshint', 'concat:js']);
 };

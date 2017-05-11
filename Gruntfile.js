@@ -24,12 +24,19 @@ module.exports = function(grunt) {
 		},
 
 		jshint: {
-			all: ['./sources/_js/*.js']
+			all: [
+                './sources/_js/*.js'
+            ]
 		},
 
      	watch: {
 		 	scripts: {
-				files: ['./sources/**/*.js', './sources/**/*.scss'],
+				files: [
+                    './sources/index.html',
+                    './sources/**/*.html',
+                    './sources/**/*.js',
+                    './sources/**/*.scss'
+                ],
 				tasks: ['default'],
 				options: {
 			  		spawn: false,

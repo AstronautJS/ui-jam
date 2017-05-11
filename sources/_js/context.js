@@ -4,8 +4,11 @@
     var FUNCTION = {};
     var RENDERED = {};
     var DOM = {
+        body: document.getElementById('body'),
         header: document.getElementById('header'),
         mainContainer: document.getElementById('mainContainer'),
+        secondaryContainer: document.getElementById('secondaryContainer'),
+        btnCancel: document.getElementById('btnCancel'),
         btnReject: document.getElementById('btnReject'),
         btnAccept: document.getElementById('btnAccept')
     };
@@ -16,8 +19,16 @@
     var currentPage = 'home';
 
 
-    //////////////////////////////////////////////////    
-    
+    //////////////////////////////////////////////////
+
+
+    FUNCTION.setStatusPage = function(stats) {
+        DOM.body.setAttribute('data-page', stats);
+    };
+
+    FUNCTION.getStatusPage = function() {
+        return DOM.body.getAttribute('data-page');
+    };
     
     FUNCTION.addCategoryInBar = function() {
         var hammerElement = document.getElementById('hammer');
@@ -37,6 +48,8 @@
     
 
     //////////////////////////////////////////////////
+
+    FUNCTION.setStatusPage(PAGESTATUS.home);
     
     RENDERED.hammer = nunjucks.render('_templates/hammer.tpl.html', {});
     DOM.mainContainer.innerHTML = RENDERED.hammer;
@@ -55,14 +68,19 @@
 
 
     /////////////////////////////////////////////////
+    
+    DOM.btnCancel.addEventListener('click', function() {
+        FUNCTION.setStatusPage(PAGESTATUS.home);
 
+        DOM.mainContainer.classList.remove('display-none');
+        DOM.secondaryContainer.classList.add('display-none');
+    });
 
     DOM.btnReject.addEventListener('click', function() {
         console.log('reject');
     });
     
     DOM.btnAccept.addEventListener('click', function() {
-        console.log('accept');
         FUNCTION.addCategoryInBar();
     });
 
@@ -71,9 +89,14 @@
         var element = e.target;
         var parentParent = element.parentNode.parentNode;
         
-        if(parentParent.className === 'item-bar-category') {
-            console.log('dale');
+        if(parentParent.className !== 'item-bar-category') {
+            return;
         }
+
+        FUNCTION.setStatusPage(PAGESTATUS.listCategory);
+
+        DOM.mainContainer.classList.add('display-none');
+        DOM.secondaryContainer.classList.remove('display-none');
     });
 
 })();

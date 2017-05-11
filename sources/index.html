@@ -11,18 +11,20 @@
         <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css"/>
         <link type="text/css" rel="stylesheet" href="/dist/_css/context.css"/>
     </head>
-    <body>
+    <body id="body">
 		<header id="header" class="header">
             <ul id="scrollBar" class="scroll-bar">
             </ul>
         </header>
 
         <section id="mainContainer" class="main-container"></section>
+		<section id="secondaryContainer" class="display-none secondary-container"></section>
 
         <footer id="footer" class="footer">
           	<nav id="barAction" class="bar-action">
-				<a id="btnReject" class="btn-floating btn-large waves-effect waves-light red lighten-1"><i class="material-icons">add</i></a>
-				<a id="btnAccept" class="btn-floating btn-large waves-effect waves-light green lighten-1"><i class="material-icons">add</i></a>
+				<a id="btnReject" class="btn-floating btn-large waves-effect waves-light red lighten-1"><i class="material-icons">thumb_down</i></a>
+				<a id="btnCancel" class="btn-floating btn-large waves-effect waves-light red lighten-1"><i class="material-icons">cancel</i></a>
+				<a id="btnAccept" class="btn-floating btn-large waves-effect waves-light green lighten-1"><i class="material-icons">thumb_up</i></a>
 			</nav>
         </footer>
 

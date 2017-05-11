@@ -6,7 +6,34 @@ body {
     background-color: $defaultLight;
 }
 
-.main-container {
+body[data-page="home"] {
+    #btnCancel {
+        display: none;    
+    }
+    
+    #btnAccept,
+    #btnReject {
+        display: inline-block;    
+    }
+}
+
+body[data-page="listCategory"] {
+    #btnCancel {
+        display: inline-block;    
+    }
+    
+    #btnAccept,
+    #btnReject {
+        display: none;    
+    }
+}
+
+.display-none {
+    display: none;    
+}
+
+.main-container,
+.secondary-container {
     overflow: hidden;
     position: fixed;
     width: 100%;

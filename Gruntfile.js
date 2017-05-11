@@ -24,7 +24,7 @@ module.exports = function(grunt) {
 		},
 
 		jshint: {
-			all: ['./sources/**/*.js']
+			all: ['./sources/_js/*.js']
 		},
 
      	watch: {
@@ -76,6 +76,19 @@ module.exports = function(grunt) {
 						dest: './dist/_img/'
 					}
 				],
+		  	},
+            jsLib: {
+				files: [
+					{
+						filter: 'isFile',
+						flatten: true,
+						expand: true,
+						src: [
+							'./sources/_js/lib/**',
+						],
+						dest: './dist/_js/lib'
+					}
+				],
 		  	}
 		}
 	});
@@ -90,6 +103,7 @@ module.exports = function(grunt) {
         'copy:html',
         'copy:template',
         'copy:image',
+        'copy:jsLib',
         'sass',
         'jshint',
         'concat:js'

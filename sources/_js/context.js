@@ -6,6 +6,7 @@
     var DOM = {
         body: document.getElementById('body'),
         header: document.getElementById('header'),
+        listCollection: document.getElementById('listCollection'),
         mainContainer: document.getElementById('mainContainer'),
         secondaryContainer: document.getElementById('secondaryContainer'),
         btnCancel: document.getElementById('btnCancel'),
@@ -88,7 +89,8 @@
     DOM.header.addEventListener('click', function(e) {
         var element = e.target;
         var parentParent = element.parentNode.parentNode;
-        
+        var listRendered = nunjucks.render('_templates/place-list.tpl.html', {});
+
         if(parentParent.className !== 'item-bar-category') {
             return;
         }
@@ -97,6 +99,8 @@
 
         DOM.mainContainer.classList.add('display-none');
         DOM.secondaryContainer.classList.remove('display-none');
+
+        DOM.listCollection.innerHTML = listRendered;
     });
 
 })();

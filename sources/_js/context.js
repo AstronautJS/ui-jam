@@ -1,7 +1,12 @@
 (function context() {
     'use strict';
 
-    console.log('# JAM JavaScript context success loaded');
+    var DOM = {
+        footer: document.getElementById('footer')    
+    };
+    var RENDERED = {};
+
     
-    // var rendered = nunjucks.render('_templates/test.tpl.html', { foo: 'bar' });
+    RENDERED.barAction = nunjucks.render('_templates/bar-action.tpl.html', {});
+    DOM.footer.innerHTML = RENDERED.barAction;
 })();

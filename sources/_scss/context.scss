@@ -1,12 +1,9 @@
 @charset 'UTF-8';
 
 @import 'variables';
+@import 'default';
+@import 'footer';
 
-
-// test
-body {
-    background-color: $defaultLight;
-}
 
 nav {
     background-color: $blueDark;

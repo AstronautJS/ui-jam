@@ -12,6 +12,7 @@ body {
     width: 100%;
     height: 100%;
     padding: 88px 20px;
+    z-index: 99;
 }
 
 .collection {
@@ -21,3 +22,47 @@ body {
         padding: 20px;    
     }
 }
+
+.square-list-category {
+    .item-category {
+        display: block;
+        float: left;
+        width: 114px;
+        height: 114px;
+        background-color: #ccc;
+        margin: 5px;
+        border-radius: 4px;
+    }
+
+    .category {
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+        width: 114px;
+        height: 114px;
+        display: block;
+    }
+
+    .category-icon {
+        display: block;
+        width: 66px;
+        height: 66px;
+        margin: 0 auto;
+        background: #eee;
+    }
+}
+
+.carousel {
+    height: 78px;
+
+    .carousel-item {
+        border-radius: 100%;
+        width: 58px;
+        height: 58px;
+    }    
+}
+
+.card .card-content {
+    text-align: center;    
+}
+

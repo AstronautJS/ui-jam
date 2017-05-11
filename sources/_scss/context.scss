@@ -4,33 +4,3 @@
 @import 'default';
 @import 'header';
 @import 'footer';
-
-
-nav {
-    background-color: $blueDark;
-}
-
-.nav-wrapper {
-    .brand-logo {
-        img {
-            margin: 8px 0;
-        }
-    }
-}
-
-.card {
-    .card-image {
-        img {
-            width: 150px;
-            margin: 0 auto;
-        }
-        .card-title {
-            color : rgba(0,0,0,0.87);
-        }
-    }
-    .center {
-        right: 0;
-        left: 0;
-        margin: auto;
-    }
-}

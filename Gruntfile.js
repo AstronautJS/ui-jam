@@ -35,6 +35,36 @@ module.exports = function(grunt) {
 			  		spawn: false,
 				},
 		  	},
+		},
+
+		copy: {
+		 	html: {
+				files: [
+					{
+						filter: 'isFile',
+						flatten: true,
+						expand: true,
+						src: [
+							'./sources/index.html',
+						],
+						dest: './dist'
+					}
+				],
+		  	},
+			template: {
+				files: [
+					{
+						filter: 'isFile',
+						flatten: true,
+						expand: true,
+						src: [
+							'./sources/_templates/**',
+						],
+						dest: './dist/_templates/'
+					}
+				],
+		  	}
+
 		}
 	});
 
@@ -44,5 +74,5 @@ module.exports = function(grunt) {
 
 
   	// Default task(s).
- 	grunt.registerTask('default', ['sass', 'jshint', 'concat:js']);
+ 	grunt.registerTask('default', ['copy:html', 'copy:template', 'sass', 'jshint', 'concat:js']);
 };
